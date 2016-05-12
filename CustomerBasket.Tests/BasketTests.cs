@@ -66,5 +66,15 @@ namespace CustomerBasket.Tests
 
             Assert.That(total, Is.EqualTo(2));
         }
+
+        [Test]
+        public void CalculateTotal_FetchesOffersFromTheOffersRepository()
+        {
+            offersRepository.Expect(x => x.GetOffers());
+
+            basket.CalculateTotal();
+
+            offersRepository.VerifyAllExpectations();
+        }
     }
 }

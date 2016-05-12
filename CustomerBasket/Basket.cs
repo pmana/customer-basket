@@ -1,14 +1,20 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CustomerBasket
 {
     public class Basket
     {
-        private Product[] products;
+        private readonly List<Product> products;
+
+        public Basket()
+        {
+            products = new List<Product>();
+        }
 
         public void AddProducts(params Product[] productsToAdd)
         {
-            products = productsToAdd;
+            products.AddRange(productsToAdd);
         }
 
         public decimal CalculateTotal()

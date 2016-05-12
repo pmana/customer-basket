@@ -29,5 +29,21 @@ namespace CustomerBasket.Tests
 
             Assert.That(discounts, Is.Empty);
         }
+
+        [Test]
+        public void CalculateDiscounts_ForOneMilk_ReturnsNoDiscount()
+        {
+            var discounts = offer.CalculateDiscounts(new[] { Product.Milk });
+
+            Assert.That(discounts, Is.Empty);
+        }
+
+        [Test]
+        public void CalculateDiscounts_ForThreeMilk_ReturnsNoDiscount()
+        {
+            var discounts = offer.CalculateDiscounts(new[] { Product.Milk, Product.Milk, Product.Milk });
+
+            Assert.That(discounts, Is.Empty);
+        }
     }
 }

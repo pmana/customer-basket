@@ -1,17 +1,17 @@
-﻿using System;
-
-namespace CustomerBasket
+﻿namespace CustomerBasket
 {
     public class Basket
     {
-        public void AddProducts(params IProduct[] products)
+        private IProduct[] products;
+
+        public void AddProducts(params IProduct[] productsToAdd)
         {
-            throw new NotImplementedException();
+            products = productsToAdd;
         }
 
         public decimal CalculateTotal()
         {
-            throw new NotImplementedException();
+            return products[0].Value;
         }
     }
 }

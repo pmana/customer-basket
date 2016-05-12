@@ -11,7 +11,11 @@ namespace CustomerBasket
     {
         public IEnumerable<IOffer> GetOffers()
         {
-            throw new System.NotImplementedException();
+            return new IOffer[]
+            {
+                new FourMilkForThreeOffer(),
+                new HalfPriceBreadWithTwoButterOffer()
+            };
         }
     }
 }

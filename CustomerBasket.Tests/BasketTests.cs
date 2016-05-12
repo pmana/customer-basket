@@ -20,6 +20,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForOneProductWithNoDiscounts_ReturnsThatProductsValue()
         {
             basket.AddProducts(Product.Bread);
+            offersRepository.Stub(x => x.GetOffers()).Return(new IOffer[0]);
 
             var total = basket.CalculateTotal();
 
@@ -30,6 +31,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForTwoProductsOfTheSameTypeWithNoDiscounts_ReturnsTwoTimesThatProductsValue()
         {
             basket.AddProducts(Product.Bread, Product.Bread);
+            offersRepository.Stub(x => x.GetOffers()).Return(new IOffer[0]);
 
             var total = basket.CalculateTotal();
 
@@ -40,6 +42,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForTwoProductsOfDifferentTypesWithNoDiscounts_ReturnsTheAdditionOfThoseTwoProductValues()
         {
             basket.AddProducts(Product.Bread, Product.Milk);
+            offersRepository.Stub(x => x.GetOffers()).Return(new IOffer[0]);
 
             var total = basket.CalculateTotal();
 
@@ -50,6 +53,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForManyProductsOfDifferentTypesWithNoDiscounts_ReturnsTheExpectedTotal()
         {
             basket.AddProducts(Product.Bread, Product.Milk, Product.Milk, Product.Butter);
+            offersRepository.Stub(x => x.GetOffers()).Return(new IOffer[0]);
 
             var total = basket.CalculateTotal();
 
@@ -61,6 +65,7 @@ namespace CustomerBasket.Tests
         {
             basket.AddProducts(Product.Bread);
             basket.AddProducts(Product.Bread);
+            offersRepository.Stub(x => x.GetOffers()).Return(new IOffer[0]);
 
             var total = basket.CalculateTotal();
 
@@ -70,7 +75,7 @@ namespace CustomerBasket.Tests
         [Test]
         public void CalculateTotal_FetchesOffersFromTheOffersRepository()
         {
-            offersRepository.Expect(x => x.GetOffers());
+            offersRepository.Expect(x => x.GetOffers()).Return(new IOffer[0]);
 
             basket.CalculateTotal();
 
@@ -89,6 +94,20 @@ namespace CustomerBasket.Tests
             var total = basket.CalculateTotal();
 
             Assert.That(total, Is.EqualTo(0.1m));
+        }
+
+        [Test]
+        public void CalculateTotal_AddingTwoProductsWithADiscount_ReturnsThoseProductsValuesMinusTheDiscount()
+        {
+            basket.AddProducts(Product.Bread, Product.Butter);
+            var offer = MockRepository.GenerateMock<IOffer>();
+            var discount = new Discount(Product.Bread, 50);
+            offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount});
+            offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
+
+            var total = basket.CalculateTotal();
+
+            Assert.That(total, Is.EqualTo(1.3m));
         }
     }
 }

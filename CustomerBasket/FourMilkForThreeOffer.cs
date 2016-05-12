@@ -5,7 +5,7 @@ namespace CustomerBasket
 {
     public class FourMilkForThreeOffer : IOffer
     {
-        public IEnumerable<Discount> CalculateDiscount(IEnumerable<Product> products)
+        public IEnumerable<Discount> CalculateDiscounts(IEnumerable<Product> products)
         {
             throw new NotImplementedException();
         }

@@ -22,7 +22,7 @@ namespace CustomerBasket
         public decimal CalculateTotal()
         {
             var offers = offersRepository.GetOffers();
-            var discounts = offers.SelectMany(x => x.CalculateDiscount(products));
+            var discounts = offers.SelectMany(x => x.CalculateDiscounts(products));
             return products.Sum(x => x.Value) - discounts.Sum(x => x.Value);
         }
     }

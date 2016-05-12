@@ -88,7 +88,7 @@ namespace CustomerBasket.Tests
             basket.AddProducts(Product.Bread);
             var offer = MockRepository.GenerateMock<IOffer>();
             var discount = new Discount(Product.Bread, 90);
-            offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount});
+            offer.Stub(x => x.CalculateDiscounts(null)).IgnoreArguments().Return(new[] {discount});
             offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
 
             var total = basket.CalculateTotal();
@@ -102,7 +102,7 @@ namespace CustomerBasket.Tests
             basket.AddProducts(Product.Bread, Product.Butter);
             var offer = MockRepository.GenerateMock<IOffer>();
             var discount = new Discount(Product.Bread, 50);
-            offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount});
+            offer.Stub(x => x.CalculateDiscounts(null)).IgnoreArguments().Return(new[] {discount});
             offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
 
             var total = basket.CalculateTotal();
@@ -117,7 +117,7 @@ namespace CustomerBasket.Tests
             var offer = MockRepository.GenerateMock<IOffer>();
             var discount1 = new Discount(Product.Bread, 50);
             var discount2 = new Discount(Product.Butter, 10);
-            offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount1, discount2});
+            offer.Stub(x => x.CalculateDiscounts(null)).IgnoreArguments().Return(new[] {discount1, discount2});
             offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
 
             var total = basket.CalculateTotal();
@@ -131,10 +131,10 @@ namespace CustomerBasket.Tests
             basket.AddProducts(Product.Bread, Product.Butter, Product.Milk);
             var offer1 = MockRepository.GenerateMock<IOffer>();
             var discount1 = new Discount(Product.Bread, 50);
-            offer1.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount1});
+            offer1.Stub(x => x.CalculateDiscounts(null)).IgnoreArguments().Return(new[] {discount1});
             var offer2 = MockRepository.GenerateMock<IOffer>();
             var discount2 = new Discount(Product.Butter, 20);
-            offer2.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount2});
+            offer2.Stub(x => x.CalculateDiscounts(null)).IgnoreArguments().Return(new[] {discount2});
             offersRepository.Stub(x => x.GetOffers()).Return(new[] { offer1, offer2 });
 
             var total = basket.CalculateTotal();

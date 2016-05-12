@@ -7,7 +7,16 @@ namespace CustomerBasket
     {
         public IEnumerable<Discount> CalculateDiscounts(IEnumerable<Product> products)
         {
-            return Enumerable.Empty<Discount>();
+            var butter = products.Count(x => x.ProductId == Product.Butter.ProductId);
+            var bread = products.Count(x => x.ProductId == Product.Bread.ProductId);
+            if (butter == 2 && bread == 1)
+            {
+                yield return new Discount(Product.Bread, 50);
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 }

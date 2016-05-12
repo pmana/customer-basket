@@ -4,9 +4,9 @@ namespace CustomerBasket
 {
     public class Basket
     {
-        private IProduct[] products;
+        private Product[] products;
 
-        public void AddProducts(params IProduct[] productsToAdd)
+        public void AddProducts(params Product[] productsToAdd)
         {
             products = productsToAdd;
         }

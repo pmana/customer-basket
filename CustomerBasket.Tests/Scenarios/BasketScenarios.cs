@@ -11,7 +11,7 @@ namespace CustomerBasket.Tests.Scenarios
         public void GivenTheBasketHasOneBreadButterAndMilk_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
         {
             var basket = new Basket();
-            basket.AddProducts(new Bread(), new Butter(), new Milk());
+            basket.AddProducts(Product.Bread, Product.Butter, Product.Milk);
 
             var total = basket.CalculateTotal();
 

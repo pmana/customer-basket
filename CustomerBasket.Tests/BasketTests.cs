@@ -16,7 +16,7 @@ namespace CustomerBasket.Tests
         [Test]
         public void CalculateTotal_ForOneProduct_ReturnsThatProductsValue()
         {
-            basket.AddProducts(new Bread());
+            basket.AddProducts(Product.Bread);
 
             var total = basket.CalculateTotal();
 
@@ -27,7 +27,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForTwoProductsOfTheSameType_ReturnsTwoTimesThatProductsValue()
         {
 
-            basket.AddProducts(new Bread(), new Bread());
+            basket.AddProducts(Product.Bread, Product.Bread);
 
             var total = basket.CalculateTotal();
 
@@ -38,7 +38,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForTwoProductsOfDifferentTypes_ReturnsTheAdditionOfThoseTwoProductValues()
         {
 
-            basket.AddProducts(new Bread(), new Milk());
+            basket.AddProducts(Product.Bread, Product.Milk);
 
             var total = basket.CalculateTotal();
 
@@ -49,7 +49,7 @@ namespace CustomerBasket.Tests
         public void CalculateTotal_ForManyProductsOfDifferentTypes_ReturnsTheExpectedTotal()
         {
 
-            basket.AddProducts(new Bread(), new Milk(), new Milk(), new Butter());
+            basket.AddProducts(Product.Bread, Product.Milk, Product.Milk, Product.Butter);
 
             var total = basket.CalculateTotal();
 

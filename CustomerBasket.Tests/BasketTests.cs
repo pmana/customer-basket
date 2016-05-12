@@ -76,5 +76,19 @@ namespace CustomerBasket.Tests
 
             offersRepository.VerifyAllExpectations();
         }
+
+        [Test]
+        public void CalculateTotal_AddingOneProductWithADiscount_ReturnsThatProductsValueMinusTheDiscount()
+        {
+            basket.AddProducts(Product.Bread);
+            var offer = MockRepository.GenerateMock<IOffer>();
+            var discount = new Discount {}; // todo: set this to 90% off bread
+            offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount});
+            offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
+
+            var total = basket.CalculateTotal();
+
+            Assert.That(total, Is.EqualTo(0.1m));
+        }
     }
 }

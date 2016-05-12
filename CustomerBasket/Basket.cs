@@ -21,6 +21,7 @@ namespace CustomerBasket
 
         public decimal CalculateTotal()
         {
+            var offers = offersRepository.GetOffers();
             return products.Sum(x => x.Value);
         }
     }

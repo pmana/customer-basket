@@ -5,10 +5,12 @@ namespace CustomerBasket
 {
     public class Basket
     {
+        private readonly IOffersRepository offersRepository;
         private readonly List<Product> products;
 
-        public Basket()
+        public Basket(IOffersRepository offersRepository)
         {
+            this.offersRepository = offersRepository;
             products = new List<Product>();
         }
 

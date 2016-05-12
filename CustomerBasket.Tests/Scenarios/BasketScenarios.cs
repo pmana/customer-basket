@@ -8,10 +8,17 @@ namespace CustomerBasket.Tests.Scenarios
     [TestFixture]
     public class BasketScenarios
     {
-        [Test]
-        public void GivenTheBasketHasOneBreadButterAndMilk_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
+        private Basket basket;
+
+        [SetUp]
+        public void SetUp()
         {
-            var basket = new Basket();
+            basket = new Basket(new OffersRepository());
+        }
+
+        [Test]
+        public void GivenTheBasketHasOneBreadButterAndMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
+        {
             basket.AddProducts(Product.Bread, Product.Butter, Product.Milk);
 
             var total = basket.CalculateTotal();
@@ -20,9 +27,8 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasTwoBreadAndTwoButter_WhenITotalTheBasket_ThenTheTotalShouldBe3_10()
+        public void GivenTheBasketHasTwoBreadAndTwoButterAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe3_10()
         {
-            var basket = new Basket();
             basket.AddProducts(Product.Bread, Product.Bread, Product.Butter, Product.Butter);
 
             var total = basket.CalculateTotal();
@@ -31,9 +37,8 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasFourMilk_WhenITotalTheBasket_ThenTheTotalShouldBe3_45()
+        public void GivenTheBasketHasFourMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe3_45()
         {
-            var basket = new Basket();
             basket.AddProducts(Product.Milk, Product.Milk, Product.Milk, Product.Milk);
 
             var total = basket.CalculateTotal();
@@ -42,9 +47,8 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasTwoButterOneBreadAndEightMilk_WhenITotalTheBasket_ThenTheTotalShouldBe9_00()
+        public void GivenTheBasketHasTwoButterOneBreadAndEightMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe9_00()
         {
-            var basket = new Basket();
             basket.AddProducts(Product.Butter, Product.Butter, Product.Bread);
             basket.AddProducts(Enumerable.Range(0, 8).Select(x => Product.Milk).ToArray());
 

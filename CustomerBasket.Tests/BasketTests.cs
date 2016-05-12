@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace CustomerBasket.Tests
 {
@@ -6,11 +7,13 @@ namespace CustomerBasket.Tests
     public class BasketTests
     {
         private Basket basket;
+        private IOffersRepository offersRepository;
 
         [SetUp]
         public void SetUp()
         {
-            basket = new Basket();
+            offersRepository = MockRepository.GenerateMock<IOffersRepository>();
+            basket = new Basket(offersRepository);
         }
 
         [Test]

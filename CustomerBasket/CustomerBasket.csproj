@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basket.cs" />
+    <Compile Include="Discount.cs" />
+    <Compile Include="IOffer.cs" />
+    <Compile Include="OffersRepository.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

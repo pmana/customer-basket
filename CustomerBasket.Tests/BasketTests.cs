@@ -22,5 +22,16 @@ namespace CustomerBasket.Tests
 
             Assert.That(total, Is.EqualTo(1));
         }
+
+        [Test]
+        public void CalculateTotal_ForTwoProductsOfTheSameType_ReturnsTwoTimesThatProductsValue()
+        {
+
+            basket.AddProducts(new Bread(), new Bread());
+
+            var total = basket.CalculateTotal();
+
+            Assert.That(total, Is.EqualTo(2));
+        }
     }
 }

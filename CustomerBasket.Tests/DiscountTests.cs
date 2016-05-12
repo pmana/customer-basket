@@ -20,5 +20,15 @@ namespace CustomerBasket.Tests
 
             Assert.That(discount.Value, Is.EqualTo(1));
         }
+
+        [TestCase(10, 0.1)]
+        [TestCase(33, 0.33)]
+        [TestCase(50, 0.5)]
+        public void Discount_WhenAtVariousPercentages_SetsValueToExpectedPercentageOfProduct(decimal percentage, decimal expected)
+        {
+            var discount = new Discount(Product.Bread, percentage);
+
+            Assert.That(discount.Value, Is.EqualTo(expected));
+        }
     }
 }

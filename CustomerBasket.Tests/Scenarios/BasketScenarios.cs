@@ -10,7 +10,12 @@ namespace CustomerBasket.Tests.Scenarios
         [Test]
         public void GivenTheBasketHasOneBreadButterAndMilk_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
         {
-            
+            var basket = new Basket();
+            basket.AddProducts(new Bread(), new Butter(), new Milk());
+
+            var total = basket.CalculateTotal();
+
+            Assert.That(total, Is.EqualTo(2.95m));
         }
 
         [Test]

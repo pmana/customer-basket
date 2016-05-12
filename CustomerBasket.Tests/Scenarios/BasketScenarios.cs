@@ -21,19 +21,19 @@ namespace CustomerBasket.Tests.Scenarios
         [Test]
         public void GivenTheBasketHasTwoBreadAndTwoButter_WhenITotalTheBasket_ThenTheTotalShouldBe3_10()
         {
-            
+            Assert.Fail();
         }
 
         [Test]
         public void GivenTheBasketHasFourMilk_WhenITotalTheBasket_ThenTheTotalShouldBe3_45()
         {
-            
+            Assert.Fail();
         }
 
         [Test]
         public void GivenTheBasketHasTwoButterOneBreadAndEightMilk_WhenITotalTheBasket_ThenTheTotalShouldBe9_00()
         {
-            
+            Assert.Fail();
         }
     }
 }

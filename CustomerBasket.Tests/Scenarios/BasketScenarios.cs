@@ -17,7 +17,7 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasOneBreadButterAndMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
+        public void GivenTheBasketHasOneBreadButterAndMilk_WhenITotalTheBasket_ThenTheTotalShouldBe2_95()
         {
             basket.AddProducts(Product.Bread, Product.Butter, Product.Milk);
 
@@ -27,7 +27,7 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasTwoBreadAndTwoButterAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe3_10()
+        public void GivenTheBasketHasTwoBreadAndTwoButter_WhenITotalTheBasket_ThenTheTotalShouldBe3_10()
         {
             basket.AddProducts(Product.Bread, Product.Bread, Product.Butter, Product.Butter);
 
@@ -37,7 +37,7 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasFourMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe3_45()
+        public void GivenTheBasketHasFourMilk_WhenITotalTheBasket_ThenTheTotalShouldBe3_45()
         {
             basket.AddProducts(Product.Milk, Product.Milk, Product.Milk, Product.Milk);
 
@@ -47,7 +47,7 @@ namespace CustomerBasket.Tests.Scenarios
         }
 
         [Test]
-        public void GivenTheBasketHasTwoButterOneBreadAndEightMilkAndNoDiscounts_WhenITotalTheBasket_ThenTheTotalShouldBe9_00()
+        public void GivenTheBasketHasTwoButterOneBreadAndEightMilk_WhenITotalTheBasket_ThenTheTotalShouldBe9_00()
         {
             basket.AddProducts(Product.Butter, Product.Butter, Product.Bread);
             basket.AddProducts(Enumerable.Range(0, 8).Select(x => Product.Milk).ToArray());

@@ -17,7 +17,7 @@ namespace CustomerBasket.Tests
         }
 
         [Test]
-        public void CalculateTotal_ForOneProduct_ReturnsThatProductsValue()
+        public void CalculateTotal_ForOneProductWithNoDiscounts_ReturnsThatProductsValue()
         {
             basket.AddProducts(Product.Bread);
 
@@ -27,7 +27,7 @@ namespace CustomerBasket.Tests
         }
 
         [Test]
-        public void CalculateTotal_ForTwoProductsOfTheSameType_ReturnsTwoTimesThatProductsValue()
+        public void CalculateTotal_ForTwoProductsOfTheSameTypeWithNoDiscounts_ReturnsTwoTimesThatProductsValue()
         {
             basket.AddProducts(Product.Bread, Product.Bread);
 
@@ -37,7 +37,7 @@ namespace CustomerBasket.Tests
         }
 
         [Test]
-        public void CalculateTotal_ForTwoProductsOfDifferentTypes_ReturnsTheAdditionOfThoseTwoProductValues()
+        public void CalculateTotal_ForTwoProductsOfDifferentTypesWithNoDiscounts_ReturnsTheAdditionOfThoseTwoProductValues()
         {
             basket.AddProducts(Product.Bread, Product.Milk);
 
@@ -47,7 +47,7 @@ namespace CustomerBasket.Tests
         }
 
         [Test]
-        public void CalculateTotal_ForManyProductsOfDifferentTypes_ReturnsTheExpectedTotal()
+        public void CalculateTotal_ForManyProductsOfDifferentTypesWithNoDiscounts_ReturnsTheExpectedTotal()
         {
             basket.AddProducts(Product.Bread, Product.Milk, Product.Milk, Product.Butter);
 
@@ -57,7 +57,7 @@ namespace CustomerBasket.Tests
         }
 
         [Test]
-        public void CalculateTotal_AddingTheSameProductTwice_ReturnsTwiceThatProductsValue()
+        public void CalculateTotal_AddingTheSameProductTwiceWithNoDiscounts_ReturnsTwiceThatProductsValue()
         {
             basket.AddProducts(Product.Bread);
             basket.AddProducts(Product.Bread);

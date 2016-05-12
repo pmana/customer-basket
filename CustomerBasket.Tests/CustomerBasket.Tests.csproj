@@ -48,6 +48,7 @@
     <Compile Include="BasketTests.cs" />
     <Compile Include="DiscountTests.cs" />
     <Compile Include="FourMilkForThreeOfferTests.cs" />
+    <Compile Include="HalfPriceBreadWithTwoButterOfferTests.cs" />
     <Compile Include="OffersRespositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenarios\BasketScenarios.cs" />

@@ -6,19 +6,19 @@ namespace CustomerBasket.Tests
     public class DiscountTests
     {
         [Test]
-        public void Discount_WhenZeroPercent_SetsValueToValueOfOriginalProduct()
+        public void Discount_WhenZeroPercent_SetsValueToZero()
         {
             var discount = new Discount(Product.Bread, 0);
 
-            Assert.That(discount.Value, Is.EqualTo(1));
+            Assert.That(discount.Value, Is.EqualTo(0));
         }
 
         [Test]
-        public void Discount_When100Percent_SetsValueToZero()
+        public void Discount_When100Percent_SetsValueToValueOfProduct()
         {
             var discount = new Discount(Product.Bread, 100);
 
-            Assert.That(discount.Value, Is.EqualTo(0));
+            Assert.That(discount.Value, Is.EqualTo(1));
         }
     }
 }

@@ -82,7 +82,7 @@ namespace CustomerBasket.Tests
         {
             basket.AddProducts(Product.Bread);
             var offer = MockRepository.GenerateMock<IOffer>();
-            var discount = new Discount {}; // todo: set this to 90% off bread
+            var discount = new Discount(Product.Bread, 90);
             offer.Stub(x => x.CalculateDiscount(null)).IgnoreArguments().Return(new[] {discount});
             offersRepository.Stub(x => x.GetOffers()).Return(new[] {offer});
 

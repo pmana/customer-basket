@@ -1,4 +1,6 @@
-﻿namespace CustomerBasket
+﻿using System.Linq;
+
+namespace CustomerBasket
 {
     public class Basket
     {
@@ -11,7 +13,7 @@
 
         public decimal CalculateTotal()
         {
-            return products[0].Value;
+            return products.Sum(x => x.Value);
         }
     }
 }

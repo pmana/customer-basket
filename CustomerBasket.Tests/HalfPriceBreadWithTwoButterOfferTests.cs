@@ -62,5 +62,19 @@ namespace CustomerBasket.Tests
             Assert.That(discounts, Has.Length.EqualTo(1));
             Assert.That(discounts[0].Value, Is.EqualTo(0.5m));
         }
+
+        [Test]
+        public void CalculateDiscounts_ForTwoBreadAndFourButter_ReturnsTwoDiscountsForHalfThePriceOfBread()
+        {
+            var discounts = offer.CalculateDiscounts(new[]
+            {
+                Product.Bread, Product.Bread,
+                Product.Butter, Product.Butter, Product.Butter, Product.Butter
+            }).ToArray();
+
+            Assert.That(discounts, Has.Length.EqualTo(2));
+            Assert.That(discounts[0].Value, Is.EqualTo(0.5m));
+            Assert.That(discounts[1].Value, Is.EqualTo(0.5m));
+        }
     }
 }
